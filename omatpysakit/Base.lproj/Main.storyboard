@@ -85,17 +85,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="QHz-bh-xTm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GmK-gg-aSz"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9Wr-Ex-y3Y"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GmK-gg-aSz">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="i2E-tC-puF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9Wr-Ex-y3Y">
+                            <connections>
+                                <segue destination="J5y-Fu-Ftr" kind="unwind" unwindAction="unwindToStopListWithSender:" id="ruv-Jx-kW7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backButton" destination="GmK-gg-aSz" id="bdd-0F-tpS"/>
+                        <outlet property="cancelButton" destination="GmK-gg-aSz" id="QMm-0O-v7J"/>
                         <outlet property="saveButton" destination="9Wr-Ex-y3Y" id="go4-8i-vhv"/>
                         <outlet property="stopName" destination="Yax-Qs-Asv" id="Hgc-ed-PCe"/>
                         <outlet property="tableView" destination="b5k-pl-aeD" id="0Uf-ry-Dpz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="J5y-Fu-Ftr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3452" y="23"/>
         </scene>
@@ -234,6 +243,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gH5-tZ-uxn"/>
+        <segue reference="XID-VI-DMp"/>
     </inferredMetricsTieBreakers>
 </document>

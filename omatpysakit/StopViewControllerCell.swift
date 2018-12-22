@@ -10,5 +10,5 @@ import UIKit
 
 class StopViewControllerCell: UITableViewCell {
     @IBOutlet weak var stopName: UILabel!
-    var id: String? = nil
+    var stop: Stop? = nil
 }

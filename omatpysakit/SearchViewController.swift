@@ -51,7 +51,7 @@ class SearchViewController: UITableViewController {
             guard let navigation = segue.destination as? UINavigationController else { return }
             guard let destination = navigation.viewControllers.first as? StopViewController else { return }
             guard let sender = sender as? SearchCell, let stop = sender.stop else { return }
-            destination.id = stop.id
+            destination.stop = stop
         }
     }
 }

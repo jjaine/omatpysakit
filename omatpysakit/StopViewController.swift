@@ -25,13 +25,13 @@ struct LineInfo {
 
 class StopViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stopName: UILabel!
     var info: [LineInfo] = []
     var timer: Timer? = nil
-    var id: String? = nil
+    var stop: Stop? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class StopViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func getStopInfo() {
         info = []
-        guard let id = id else { return }
+        guard let id = stop?.id else { return }
         staticApollo.apollo.fetch(query: StopInfoQuery(id: id)) { [weak self]
             (result, error) in
             guard let sSelf = self, let result = result, let data = result.data, let stop = data.stop else { print(error!); return }
@@ -86,6 +86,21 @@ class StopViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let timeToArrival = info[indexPath.row].arrivalTime.timeIntervalSinceNow
         cell.arrival.text = timeToArrival.stringFormatted()
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard let button = sender as? UIBarButtonItem, button === saveButton else { return }
+    }
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        if presentingViewController is UINavigationController {
+            dismiss(animated: true, completion: nil)
+        } else if let owningNavigationController = navigationController {
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            fatalError("The StopViewController is not inside a navigation controller.")
+        }
     }
 }
 

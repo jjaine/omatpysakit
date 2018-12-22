@@ -62,7 +62,7 @@ class MainViewController: UITableViewController {
         print(indexPath)
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "StopViewControllerCell") as? StopViewControllerCell else { fatalError() }
         cell.stopName.text = stops[indexPath.row].name
-        cell.id = stops[indexPath.row].id
+        cell.stop = stops[indexPath.row]
         return cell
     }
     
@@ -70,7 +70,26 @@ class MainViewController: UITableViewController {
         if segue.identifier != nil && segue.identifier! == "StopInfo" {
             guard let destination = segue.destination as? StopViewController else { return }
             guard let sender = sender as? StopViewControllerCell else { return }
-            destination.id = sender.id
+            destination.stop = sender.stop
+            destination.saveButton.title = "Delete"
+            destination.saveButton.tintColor = .red
+        }
+    }
+    
+    @IBAction func unwindToStopList(sender: UIStoryboardSegue) {
+        guard let sourceViewController = sender.source as? StopViewController, let stop = sourceViewController.stop else { return }
+        let newIndexPath = IndexPath(row: stops.count, section: 0)
+        if !stops.contains(where: { (elem) -> Bool in
+            return elem.id == stop.id && elem.name == stop.name
+        }) {
+            stops.append(stop)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        } else {
+            guard let idx = stops.firstIndex( where: { (elem) -> Bool in
+                return elem.id == stop.id && elem.name == stop.name
+            }) else { return }
+            stops.remove(at: idx)
+            tableView.deleteRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
         }
     }
     
