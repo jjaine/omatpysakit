@@ -7,21 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF059DB221CE76160003F10C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB121CE76160003F10C /* MainViewController.swift */; };
+		EF059DB421CE7F780003F10C /* StopViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */; };
+		EF059DB621CE86260003F10C /* StopInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB521CE86260003F10C /* StopInfoCell.swift */; };
 		EFEAAB3E21CD7567002CA590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEAAB3D21CD7567002CA590 /* AppDelegate.swift */; };
-		EFEAAB4021CD7567002CA590 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEAAB3F21CD7567002CA590 /* ViewController.swift */; };
+		EFEAAB4021CD7567002CA590 /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEAAB3F21CD7567002CA590 /* StopViewController.swift */; };
 		EFEAAB4321CD7567002CA590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFEAAB4121CD7567002CA590 /* Main.storyboard */; };
 		EFEAAB4521CD7568002CA590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFEAAB4421CD7568002CA590 /* Assets.xcassets */; };
 		EFEAAB4821CD7568002CA590 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFEAAB4621CD7568002CA590 /* LaunchScreen.storyboard */; };
+		EFEAAB5121CD7894002CA590 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFEAAB5021CD7894002CA590 /* Apollo.framework */; };
+		EFEAAB5921CD7E7B002CA590 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEAAB5821CD7E7B002CA590 /* API.swift */; };
+		EFEAAB5B21CD7E91002CA590 /* StopViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = EFEAAB5A21CD7E91002CA590 /* StopViewController.graphql */; };
+		EFEAAB5D21CD80D2002CA590 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = EFEAAB5C21CD80D2002CA590 /* schema.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EF059DB121CE76160003F10C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewControllerCell.swift; sourceTree = "<group>"; };
+		EF059DB521CE86260003F10C /* StopInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfoCell.swift; sourceTree = "<group>"; };
 		EFEAAB3A21CD7567002CA590 /* omatpysakit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omatpysakit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEAAB3D21CD7567002CA590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EFEAAB3F21CD7567002CA590 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EFEAAB3F21CD7567002CA590 /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
 		EFEAAB4221CD7567002CA590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFEAAB4421CD7568002CA590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFEAAB4721CD7568002CA590 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EFEAAB4921CD7568002CA590 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFEAAB5021CD7894002CA590 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = SOURCE_ROOT; };
+		EFEAAB5821CD7E7B002CA590 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		EFEAAB5A21CD7E91002CA590 /* StopViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = StopViewController.graphql; sourceTree = "<group>"; };
+		EFEAAB5C21CD80D2002CA590 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFEAAB5121CD7894002CA590 /* Apollo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +53,7 @@
 		EFEAAB3121CD7567002CA590 = {
 			isa = PBXGroup;
 			children = (
+				EFEAAB4F21CD7882002CA590 /* Frameworks */,
 				EFEAAB3C21CD7567002CA590 /* omatpysakit */,
 				EFEAAB3B21CD7567002CA590 /* Products */,
 			);
@@ -54,14 +70,28 @@
 		EFEAAB3C21CD7567002CA590 /* omatpysakit */ = {
 			isa = PBXGroup;
 			children = (
+				EFEAAB5821CD7E7B002CA590 /* API.swift */,
+				EFEAAB5C21CD80D2002CA590 /* schema.json */,
 				EFEAAB3D21CD7567002CA590 /* AppDelegate.swift */,
-				EFEAAB3F21CD7567002CA590 /* ViewController.swift */,
+				EFEAAB3F21CD7567002CA590 /* StopViewController.swift */,
+				EFEAAB5A21CD7E91002CA590 /* StopViewController.graphql */,
 				EFEAAB4121CD7567002CA590 /* Main.storyboard */,
 				EFEAAB4421CD7568002CA590 /* Assets.xcassets */,
 				EFEAAB4621CD7568002CA590 /* LaunchScreen.storyboard */,
 				EFEAAB4921CD7568002CA590 /* Info.plist */,
+				EF059DB121CE76160003F10C /* MainViewController.swift */,
+				EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */,
+				EF059DB521CE86260003F10C /* StopInfoCell.swift */,
 			);
 			path = omatpysakit;
+			sourceTree = "<group>";
+		};
+		EFEAAB4F21CD7882002CA590 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFEAAB5021CD7894002CA590 /* Apollo.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFEAAB4C21CD7568002CA590 /* Build configuration list for PBXNativeTarget "omatpysakit" */;
 			buildPhases = (
+				EFEAAB5321CD78CA002CA590 /* Generate Apollo GraphQL API */,
 				EFEAAB3621CD7567002CA590 /* Sources */,
 				EFEAAB3721CD7567002CA590 /* Frameworks */,
 				EFEAAB3821CD7567002CA590 /* Resources */,
+				EFEAAB5221CD78A3002CA590 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,18 +157,64 @@
 				EFEAAB4821CD7568002CA590 /* LaunchScreen.storyboard in Resources */,
 				EFEAAB4521CD7568002CA590 /* Assets.xcassets in Resources */,
 				EFEAAB4321CD7567002CA590 /* Main.storyboard in Resources */,
+				EFEAAB5D21CD80D2002CA590 /* schema.json in Resources */,
+				EFEAAB5B21CD7E91002CA590 /* StopViewController.graphql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EFEAAB5221CD78A3002CA590 /* Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
+			);
+			name = Frameworks;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		EFEAAB5321CD78CA002CA590 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json --passthroughCustomScalars API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFEAAB3621CD7567002CA590 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFEAAB4021CD7567002CA590 /* ViewController.swift in Sources */,
+				EF059DB421CE7F780003F10C /* StopViewControllerCell.swift in Sources */,
+				EFEAAB4021CD7567002CA590 /* StopViewController.swift in Sources */,
+				EFEAAB5921CD7E7B002CA590 /* API.swift in Sources */,
+				EF059DB621CE86260003F10C /* StopInfoCell.swift in Sources */,
 				EFEAAB3E21CD7567002CA590 /* AppDelegate.swift in Sources */,
+				EF059DB221CE76160003F10C /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,12 +362,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7ARABM3ZH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = omatpysakit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.omatpysakit;
+				PRODUCT_BUNDLE_IDENTIFIER = jaine.omatpysakit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,12 +384,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7ARABM3ZH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = omatpysakit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.omatpysakit;
+				PRODUCT_BUNDLE_IDENTIFIER = jaine.omatpysakit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

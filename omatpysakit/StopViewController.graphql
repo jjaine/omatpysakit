@@ -1,0 +1,20 @@
+query stopInfo($id: String!) {
+    stop(id: $id) {
+        name
+        stoptimesWithoutPatterns {
+            scheduledArrival
+            realtimeArrival
+            arrivalDelay
+            scheduledDeparture
+            realtimeDeparture
+            departureDelay
+            realtime
+            realtimeState
+            serviceDay
+            trip{
+                tripHeadsign
+                routeShortName
+            }
+        }
+    }
+}
