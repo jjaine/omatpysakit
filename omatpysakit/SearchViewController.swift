@@ -9,11 +9,27 @@
 import UIKit
 import Apollo
 
+extension SearchViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
 class SearchViewController: UITableViewController {
     var allStops: [Stop] = []
+    var filterStops: [Stop] = []
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for a stop"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         getAllStops()
     }
     
@@ -36,13 +52,22 @@ class SearchViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering(){
+            return filterStops.count
+        }
         return allStops.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchCell
-        cell.name.text = allStops[indexPath.row].name
-        cell.stop = allStops[indexPath.row]
+        if isFiltering() {
+            cell.name.text = filterStops[indexPath.row].name
+            cell.stop = filterStops[indexPath.row]
+        }
+        else {
+            cell.name.text = allStops[indexPath.row].name
+            cell.stop = allStops[indexPath.row]
+        }
         return cell
     }
     
@@ -54,4 +79,22 @@ class SearchViewController: UITableViewController {
             destination.stop = stop
         }
     }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filterStops = allStops.filter({( stop : Stop) -> Bool in
+            return stop.name.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+
 }
