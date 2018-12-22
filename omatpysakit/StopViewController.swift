@@ -9,9 +9,6 @@
 import UIKit
 import Apollo
 
-let graphQLEndpoint = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
-let apollo = ApolloClient(url: URL(string: graphQLEndpoint)!)
-
 extension TimeInterval {
     // builds string in app's labels format 00:00.0
     func stringFormatted() -> String {
@@ -28,6 +25,8 @@ struct LineInfo {
 
 class StopViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var stopName: UILabel!
     var info: [LineInfo] = []
@@ -36,7 +35,7 @@ class StopViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getStopInfo()
+        getStopInfo()
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { [weak self]
             (_) in
             self?.getStopInfo()
@@ -50,7 +49,7 @@ class StopViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func getStopInfo() {
         info = []
         guard let id = id else { return }
-        apollo.fetch(query: StopInfoQuery(id: id)) { [weak self]
+        staticApollo.apollo.fetch(query: StopInfoQuery(id: id)) { [weak self]
             (result, error) in
             guard let sSelf = self, let result = result, let data = result.data, let stop = data.stop else { print(error!); return }
             stop.stoptimesWithoutPatterns?.forEach{

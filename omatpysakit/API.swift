@@ -329,3 +329,88 @@ public final class StopInfoQuery: GraphQLQuery {
     }
   }
 }
+
+public final class AllStopsQuery: GraphQLQuery {
+  public let operationDefinition =
+    "query allStops {\n  stops {\n    __typename\n    gtfsId\n    name\n  }\n}"
+
+  public init() {
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["QueryType"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("stops", type: .list(.object(Stop.selections))),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(stops: [Stop?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "QueryType", "stops": stops.flatMap { (value: [Stop?]) -> [ResultMap?] in value.map { (value: Stop?) -> ResultMap? in value.flatMap { (value: Stop) -> ResultMap in value.resultMap } } }])
+    }
+
+    /// Get all stops
+    public var stops: [Stop?]? {
+      get {
+        return (resultMap["stops"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Stop?] in value.map { (value: ResultMap?) -> Stop? in value.flatMap { (value: ResultMap) -> Stop in Stop(unsafeResultMap: value) } } }
+      }
+      set {
+        resultMap.updateValue(newValue.flatMap { (value: [Stop?]) -> [ResultMap?] in value.map { (value: Stop?) -> ResultMap? in value.flatMap { (value: Stop) -> ResultMap in value.resultMap } } }, forKey: "stops")
+      }
+    }
+
+    public struct Stop: GraphQLSelectionSet {
+      public static let possibleTypes = ["Stop"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("gtfsId", type: .nonNull(.scalar(String.self))),
+        GraphQLField("name", type: .nonNull(.scalar(String.self))),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(gtfsId: String, name: String) {
+        self.init(unsafeResultMap: ["__typename": "Stop", "gtfsId": gtfsId, "name": name])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// ÌD of the stop in format `FeedId:StopId`
+      public var gtfsId: String {
+        get {
+          return resultMap["gtfsId"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "gtfsId")
+        }
+      }
+
+      /// Name of the stop, e.g. Pasilan asema
+      public var name: String {
+        get {
+          return resultMap["name"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "name")
+        }
+      }
+    }
+  }
+}

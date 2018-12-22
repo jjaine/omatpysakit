@@ -10,6 +10,9 @@
 		EF059DB221CE76160003F10C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB121CE76160003F10C /* MainViewController.swift */; };
 		EF059DB421CE7F780003F10C /* StopViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */; };
 		EF059DB621CE86260003F10C /* StopInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB521CE86260003F10C /* StopInfoCell.swift */; };
+		EF059DB821CE9B9B0003F10C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB721CE9B9B0003F10C /* SearchViewController.swift */; };
+		EF059DBA21CE9E560003F10C /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF059DB921CE9E560003F10C /* SearchCell.swift */; };
+		EF059DBC21CE9EE30003F10C /* SearchViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = EF059DBB21CE9EE30003F10C /* SearchViewController.graphql */; };
 		EFEAAB3E21CD7567002CA590 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEAAB3D21CD7567002CA590 /* AppDelegate.swift */; };
 		EFEAAB4021CD7567002CA590 /* StopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFEAAB3F21CD7567002CA590 /* StopViewController.swift */; };
 		EFEAAB4321CD7567002CA590 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFEAAB4121CD7567002CA590 /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		EF059DB121CE76160003F10C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewControllerCell.swift; sourceTree = "<group>"; };
 		EF059DB521CE86260003F10C /* StopInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfoCell.swift; sourceTree = "<group>"; };
+		EF059DB721CE9B9B0003F10C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		EF059DB921CE9E560003F10C /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		EF059DBB21CE9EE30003F10C /* SearchViewController.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchViewController.graphql; sourceTree = "<group>"; };
 		EFEAAB3A21CD7567002CA590 /* omatpysakit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = omatpysakit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEAAB3D21CD7567002CA590 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFEAAB3F21CD7567002CA590 /* StopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopViewController.swift; sourceTree = "<group>"; };
@@ -73,15 +79,18 @@
 				EFEAAB5821CD7E7B002CA590 /* API.swift */,
 				EFEAAB5C21CD80D2002CA590 /* schema.json */,
 				EFEAAB3D21CD7567002CA590 /* AppDelegate.swift */,
+				EFEAAB4121CD7567002CA590 /* Main.storyboard */,
+				EF059DB121CE76160003F10C /* MainViewController.swift */,
+				EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */,
 				EFEAAB3F21CD7567002CA590 /* StopViewController.swift */,
 				EFEAAB5A21CD7E91002CA590 /* StopViewController.graphql */,
-				EFEAAB4121CD7567002CA590 /* Main.storyboard */,
+				EF059DB521CE86260003F10C /* StopInfoCell.swift */,
+				EF059DB721CE9B9B0003F10C /* SearchViewController.swift */,
+				EF059DBB21CE9EE30003F10C /* SearchViewController.graphql */,
+				EF059DB921CE9E560003F10C /* SearchCell.swift */,
 				EFEAAB4421CD7568002CA590 /* Assets.xcassets */,
 				EFEAAB4621CD7568002CA590 /* LaunchScreen.storyboard */,
 				EFEAAB4921CD7568002CA590 /* Info.plist */,
-				EF059DB121CE76160003F10C /* MainViewController.swift */,
-				EF059DB321CE7F780003F10C /* StopViewControllerCell.swift */,
-				EF059DB521CE86260003F10C /* StopInfoCell.swift */,
 			);
 			path = omatpysakit;
 			sourceTree = "<group>";
@@ -154,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF059DBC21CE9EE30003F10C /* SearchViewController.graphql in Resources */,
 				EFEAAB4821CD7568002CA590 /* LaunchScreen.storyboard in Resources */,
 				EFEAAB4521CD7568002CA590 /* Assets.xcassets in Resources */,
 				EFEAAB4321CD7567002CA590 /* Main.storyboard in Resources */,
@@ -210,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF059DB421CE7F780003F10C /* StopViewControllerCell.swift in Sources */,
+				EF059DBA21CE9E560003F10C /* SearchCell.swift in Sources */,
+				EF059DB821CE9B9B0003F10C /* SearchViewController.swift in Sources */,
 				EFEAAB4021CD7567002CA590 /* StopViewController.swift in Sources */,
 				EFEAAB5921CD7E7B002CA590 /* API.swift in Sources */,
 				EF059DB621CE86260003F10C /* StopInfoCell.swift in Sources */,

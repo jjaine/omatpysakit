@@ -9,6 +9,11 @@
 import UIKit
 import Apollo
 
+class staticApollo {
+    static let graphQLEndpoint = "https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql"
+    static let apollo = ApolloClient(url: URL(string: graphQLEndpoint)!)
+}
+
 public typealias Long = Int
 
 extension Int {
@@ -62,9 +67,11 @@ class MainViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? StopViewController else { return }
-        guard let sender = sender as? StopViewControllerCell else { return }
-        destination.id = sender.id
+        if segue.identifier != nil && segue.identifier! == "StopInfo" {
+            guard let destination = segue.destination as? StopViewController else { return }
+            guard let sender = sender as? StopViewControllerCell else { return }
+            destination.id = sender.id
+        }
     }
     
 }

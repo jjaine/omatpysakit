@@ -1,0 +1,6 @@
+query allStops {
+    stops{
+        gtfsId
+        name
+    }
+}
