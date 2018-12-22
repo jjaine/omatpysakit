@@ -53,7 +53,7 @@ class StopViewController: UIViewController, UITableViewDataSource, UITableViewDe
             (result, error) in
             guard let sSelf = self, let result = result, let data = result.data, let stop = data.stop else { print(error!); return }
             stop.stoptimesWithoutPatterns?.forEach{
-                let name = $0!.trip!.routeShortName! + " (" + $0!.trip!.tripHeadsign! + ")"
+                let name = $0!.trip!.routeShortName! + " / " + $0!.trip!.tripHeadsign!
                 let arrivalTimeUnix: Int
                 if let realtimeArrival = $0!.realtimeArrival {
                     arrivalTimeUnix = $0!.serviceDay!+realtimeArrival
