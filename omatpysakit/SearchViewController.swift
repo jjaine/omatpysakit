@@ -43,6 +43,7 @@ class SearchViewController: UITableViewController {
                 let stop = Stop(name: name, id: id)
                 sSelf.allStops.append(stop)
             }
+            sSelf.allStops.sort(by: { $0.name < $1.name })
             sSelf.tableView.reloadData()
         }
     }

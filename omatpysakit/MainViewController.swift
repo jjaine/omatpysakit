@@ -41,12 +41,23 @@ struct Stop {
 class MainViewController: UITableViewController {
     
     var stops: [Stop] = []
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let dict = defaults.dictionary(forKey: "dict") as? [String: String]  {
+            dict.forEach{
+                stops.append(Stop(name: $0.key, id: $0.value))
+            }
+        } else {
+            let dict: [String: String] = [:]
+            defaults.set(dict, forKey: "dict")
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
-        stops.append(Stop(name: "Kaisaniemenkatu", id: "HSL:1020457"))
+        
         tableView.reloadData()
     }
     
@@ -84,12 +95,18 @@ class MainViewController: UITableViewController {
         }) {
             stops.append(stop)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
+            guard var dict = defaults.dictionary(forKey: "dict") else { return }
+            dict[stop.name] = stop.id
+            defaults.set(dict, forKey: "dict")
         } else {
             guard let idx = stops.firstIndex( where: { (elem) -> Bool in
                 return elem.id == stop.id && elem.name == stop.name
             }) else { return }
             stops.remove(at: idx)
             tableView.deleteRows(at: [IndexPath(row: idx, section: 0)], with: .automatic)
+            guard var dict = defaults.dictionary(forKey: "dict") else { return }
+            dict[stop.name] = nil
+            defaults.set(dict, forKey: "dict")
         }
     }
     
